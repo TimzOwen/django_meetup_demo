@@ -13,8 +13,9 @@
     <h1>Welcome to your own choice meet ups</h1>
     <p>This is the Google IO physical meet up</p>
     {% if show_meetups %}
-    <h1>{{ meetups.0.title }}</h1>
-    <h1> {{ meetups.1.title }}</h1>
+        {% for meetups_items in meetups %}
+            <p>{{ meetups_items.title }}</p>
+        {% endfor %}
     {% else%}
     <p>No meetups this Month</p>
     {% endif %}
