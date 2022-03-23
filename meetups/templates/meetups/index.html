@@ -8,16 +8,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>All Meet ups </title>
     <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}">
 </head>
 <body>
-    <h1>Welcome to your own choice meet ups</h1>
-    <p>This is the Google IO physical meet up</p>
-    {% if show_meetups %}
-        {% for meetups_items in meetups %}
-            <p>{{ meetups_items.title }}</p>
-        {% endfor %}
-    {% else%}
-    <p>No meetups this Month</p>
-    {% endif %}
+    <header id="main-header">
+        <nav><a href="/meetups" id="main-logo"> Django Nakuru Meetups</a></nav>
+        <h1>We got alot of great meetups comming!!!</h1>
+        <p>This is where developers meet and greet</p>
+    </header>
+    <main>
+        <section>
+            <h2>Upcoming Meet ups</h2>
+            <ol>
+                {% for meetup_items in meetups %}
+                <li class="meetup-item">
+                    <article>
+                        <div class="meetup-summary">
+                            <div class="meetup-image">
+                                 <img src="" alt="image">
+                            </div>
+                            <div class="meetup-details">
+                                <h3>{{ meetup_items.title }}</h3>
+                                <address>{{ meetup_items.venue }}</address>
+                            </div>
+                        </div>
+                        <div class="meetup-actions">
+                            <a href="" class="btn">More Details</a>
+                        </div>
+                    </article>
+                </li>
+                {% endfor %}
+            </ol>
+        </section>
+    </main>
 </body>
 </html>
