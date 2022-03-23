@@ -26,13 +26,13 @@ def index(request):
                    'meetups': meetups})
 
 
-def meetup_details(request):
-    selected_meetup = [
-        {
+def meetup_details(request, meetup_slug):
+    print(meetup_slug)
+    selected_meetup = {
             'title': 'First Meet up',
             'description': 'This is the meet up led by Timz owen'
         }
-    ]
+
     return render(request, '/meetups/meetup-details.html', {
         'meetup_title': selected_meetup['title'],
         'meetup-description': selected_meetup['description']
